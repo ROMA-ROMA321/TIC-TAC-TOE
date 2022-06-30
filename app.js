@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {   // ფუნქცია �
         [2, 4, 6]
     ];
 
-    function handleResultValidation() {
+    function handleResultValidation() {   //თამაშის მიმდინარეობის შემოწმება მოიგო თუ არა რომელიმე მოთამაშემ 
         let roundWon = false;
         for (let i = 0; i <= 7; i++) {
             const winCondition = winningConditions[i];
@@ -43,17 +43,17 @@ window.addEventListener('DOMContentLoaded', () => {   // ფუნქცია �
             }
         }
 
-    if (roundWon) {
+    if (roundWon) {  // ცვლადი RoundWon-ი გახდება ჭეშმარიტი მაგ შემთხვევაში გამოდის რომ მოიგო რომელიღაცა მოთამაშემ
             announce(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
             isGameActive = false;
             return;
         }
 
-    if (!board.includes(''))
+    if (!board.includes('')) //თუ დაფაზე ცარიელი ადგილი არ დარჩა და მოგების ვარიანტებიც არ დაემთხვა მაგ შემთხვევაში ფრეა 
         announce(TIE);
     }
 
-    const announce = (type) => {
+    const announce = (type) => {  //შედეგის გამოტანა ეკრანზე თუ ვინ მოიგო
         switch(type){
             case PLAYERO_WON:
                 announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
